@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .models import PersonalDetails
 
 
 class UserLoginForm(forms.Form):
@@ -46,3 +47,7 @@ class UserRegistrationForm(UserCreationForm):
 
         return instance
     
+class PersonalForm(forms.ModelForm):
+    class Meta:
+        model = PersonalDetails
+        fields = ('full_name','phone_number', 'country', 'postcode', 'town_or_city', 'street_address_1', 'street_address_2', 'county')

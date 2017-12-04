@@ -4,11 +4,12 @@
 {% block content %}
 
 <h1>Create Your Account </h1>
- <form method="POST">
+ <form role='form' method="POST" id="regform">
         {% csrf_token %}
-        
-        {{form | as_bootstrap }}
-        
+       <div class = "form-group">
+         {{form | as_bootstrap }}
+         {{personalform | as_bootstrap }}
+        </div>
         <button type="submit">Register</button>
     </form>
     
